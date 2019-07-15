@@ -3,3 +3,10 @@ language: java
 # use Java 8
 jdk:
   - openjdk8
+
+addons:
+  sonarcloud:
+    organization: "amitnema-github"
+
+script:
+  - mvn clean site sonar:sonar
