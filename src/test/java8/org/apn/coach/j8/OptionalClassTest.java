@@ -1,12 +1,10 @@
 package org.apn.coach.j8;
 
-import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 /**
  * Optional class is a container object which may or may not contain a non-null value.
@@ -22,17 +20,17 @@ public class OptionalClassTest {
         Integer value = null;
         // Optional.ofNullable - allows passed parameter to be null.
         Optional<Integer> a = Optional.ofNullable(value);
-        Assert.assertNotNull(a);
-        Assert.assertFalse(a.isPresent());
+        assertNotNull(a);
+        assertFalse(a.isPresent());
 
         // Optional.orElse - returns the value if present otherwise returns
         // the default value passed.
-        Integer val = a.orElse(Integer.valueOf(0));
+        Integer val = a.orElse(0);
         assertEquals(0, val.intValue());
     }
 
     public void testOptionalClassNonNull() {
-        Integer value = new Integer(10);
+        Integer value = 10;
         // Optional.of - throws NullPointerException if passed parameter is null
         Optional<Integer> b = Optional.of(value);
         assertTrue(b.isPresent());
